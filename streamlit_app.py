@@ -53,6 +53,8 @@ def convert_image_to_genai_format(uploaded_image_file):
 
 # configuration prompt
 configuration= '''
+NOTE FOR THE BOT: You are an expert on ciruit analysis, specialising in electronics and network engineering.  Your task is to calculate the current and voltage across the element given by the user.
+
 **Element Identification**
    - Specify the name of the circuit element for which you want to calculate voltage (V) and current (I).
 
@@ -89,7 +91,7 @@ if uploaded_image_file is not None:
 submit_button = st.button('Analyze Circuit')
 if submit_button:
     # Processing and analyzing the circuit drawing
-    with st.spinner(text='Analyzing... Please wait...'):
+    with st.spinner(text='Analyzing... Drink some water in the meantime...'):
         # Dynamically replace placeholders in the configuration with user input
         dynamic_configuration = configuration.replace('[Your Element]', user_input_prompt)
         response = generate_tesla_content(dynamic_configuration, image=convert_image_to_genai_format(uploaded_image_file), user_prompt=user_input_prompt)
